@@ -1,0 +1,31 @@
+#!/bash/sh
+
+
+#Check system packages are up to date
+sudo apt-get update
+sudo apt-get upgrade
+
+
+#Install netdata
+bash <(curl -Ss https://my-netdata.io/kickstart.sh)
+
+#Netdata default configuration file located at /etc/netdata/netdata.conf. 
+sudo nano /etc/netdata/netdata.conf
+===========================================
+        run as user = netdata
+        web files owner = root
+        web files group = root
+        bind socket to IP = set your server ip
+===========================================
+#Save and close the file
+
+#Restart Netdata service to apply the changes
+sudo systemctl restart netdata
+
+#Check the status of Netdata
+sudo systemctl status netdata
+
+#Netdata Web Interface port is 19999
+#Open web browser 
+# URL will http://your-server-ip:19999
+# or http://localhost:19999
