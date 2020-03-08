@@ -1,5 +1,6 @@
 #!/bash/sh
 
+#https://www.youtube.com/watch?v=jTtoGd0WHbQ
 
 #Check system packages are up to date
 sudo apt-get update
